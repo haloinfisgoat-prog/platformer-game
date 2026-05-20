@@ -15,9 +15,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #gameWrapper {
+            text-align: center;
         }
 
         #gameContainer {
@@ -28,6 +33,7 @@
             border: 4px solid #333;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         canvas {
@@ -42,7 +48,7 @@
             left: 10px;
             color: #333;
             font-size: 16px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             padding: 10px 15px;
             border-radius: 5px;
             z-index: 10;
@@ -50,11 +56,34 @@
 
         #info p {
             margin: 5px 0;
+            font-weight: bold;
+        }
+
+        #levelComplete {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 20;
+            display: none;
+        }
+
+        #levelComplete h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        #levelComplete p {
+            font-size: 18px;
+            margin: 10px 0;
         }
 
         .controls {
-            margin-top: 20px;
-            text-align: center;
             color: white;
             font-size: 14px;
         }
@@ -65,17 +94,22 @@
     </style>
 </head>
 <body>
-    <div>
+    <div id="gameWrapper">
         <div id="gameContainer">
             <canvas id="gameCanvas" width="800" height="600"></canvas>
             <div id="info">
                 <p>Score: <span id="score">0</span></p>
                 <p>Level: <span id="level">1</span></p>
             </div>
+            <div id="levelComplete">
+                <h2 id="completeText">Level Complete!</h2>
+                <p id="levelScore"></p>
+                <p style="margin-top: 20px; font-size: 14px;">Press SPACE to continue...</p>
+            </div>
         </div>
         <div class="controls">
-            <p><strong>Controls:</strong> A/D or Arrow Keys to move | SPACE to jump</p>
-            <p>Collect coins and reach the flag to complete the level!</p>
+            <p><strong>🎮 Controls:</strong> A/D or ← → to move | SPACE to jump</p>
+            <p>Collect coins 🪙 and reach the flag 🚩 to complete the level!</p>
         </div>
     </div>
 
